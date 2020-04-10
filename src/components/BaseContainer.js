@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Header from "./Header";
 import Input from "./Input";
 import Country from "./Country";
@@ -7,7 +7,7 @@ function BaseContainer(){
     const url = "https://restcountries.eu/rest/v2/all";
     const [countriesData, setCountriesData] = useState([]);
 
-    useEffect( () => {
+    React.useEffect( () => {
 
         const fetchData =  async () => {
              await fetch(url)
@@ -17,21 +17,19 @@ function BaseContainer(){
 
         }
 
-        fetchData();
+        //fetchData();
         //console.log( countriesData)
 
    }, []);
 
-        console.log( countriesData)
+       // console.log( countriesData)
         //countriesData.map( country => (console.log(country.name)))
 
     return(
         <div className="container-fluid">
-            <div className="shadow p-3 bg-white m-2 rounded">
-                <Header/>
-            </div>
-            <Input/>
-            <Country/>
+            <Header/>
+                <Input/>
+                <Country/>
         </div>
     )
 }
