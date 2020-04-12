@@ -1,5 +1,6 @@
 import React from 'react';
 import BaseContainer from "./components/BaseContainer";
+import "./assets/main.css"
 
 function App() {
   return (
