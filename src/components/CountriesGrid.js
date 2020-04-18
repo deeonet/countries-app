@@ -6,7 +6,7 @@ function CountriesGrid(props){
 const arrayOfCountriesToDisplay  = props.countriesToDisplay;
 
     return(
-        <div className = "d-flex flex-row flex-wrap justify-content-center">
+        <div className = "d-flex flex-row flex-wrap">
             {arrayOfCountriesToDisplay.map( countryToDisplay =>
                     <Link to={`/country/${countryToDisplay.callingCodes[0]}`} key={countryToDisplay.name}>
                         <Country

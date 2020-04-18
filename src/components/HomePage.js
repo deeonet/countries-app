@@ -44,9 +44,10 @@ function HomePage(){
     };
 
     const k = () => {
+
         arr.length = 0;
         countriesData.map( (country, index) => {
-            if((country.name.indexOf(inputValue) !== -1) && arr.length <= 8){
+            if((country.name.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) && arr.length <= 8){
                 arr.push(country)
             }
         });
@@ -55,7 +56,7 @@ function HomePage(){
 
    useMemo( () => updateCountriesForDisplay(), [countriesData]);
 
-    useMemo(() => k(), [inputValue])
+    useMemo(() => k(), [inputValue]);
 
     return(
             <div>
