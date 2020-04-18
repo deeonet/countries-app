@@ -4,11 +4,11 @@ function Country(props){
 
     return(
         <div className="card m-4 mr-auto" style={{'width': '18rem'}}>
-            <img src={props.countryFlag} className="card-img-top" alt={`flag of ${props.countryName}`} height= {200}/>
+            <img src={props.countryFlag} className="card-img-top" alt={`flag of ${props.countryName}`} height= {200} width={200}/>
                 <div className="card-body shadow p-3 mb-5 bg-white rounded">
-                    <p className="card-text font-weight-bold text-">
+                    <h5 className="card-text font-weight-bold">
                         {props.countryName}
-                    </p>
+                    </h5>
                     <div className="card-text d-flex flex-column">
                         <div>
                             <span className="font-weight-bold">Population: </span><span>{props.countryPopulation}</span>
