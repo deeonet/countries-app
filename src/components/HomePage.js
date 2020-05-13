@@ -2,7 +2,7 @@ import React, {useState, useEffect, useMemo} from "react";
 import Header from "./Header";
 import Input from "./Input";
 import CountriesGrid from "./CountriesGrid";
-import Footer from "./Footer";
+
 
 function HomePage(){
     const url = "https://restcountries.eu/rest/v2/all"; //Api endpoint for the app
