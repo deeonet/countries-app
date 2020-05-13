@@ -2,12 +2,15 @@ import React, {useState, useEffect, useMemo} from "react";
 import Header from "./Header";
 import Input from "./Input";
 import CountriesGrid from "./CountriesGrid";
+import Footer from "./Footer";
 
 function HomePage(){
     const url = "https://restcountries.eu/rest/v2/all"; //Api endpoint for the app
     const [countriesData, setCountriesData] = useState([]);
     const [countriesForGridDisplay, setCountriesForGridDisplay] = useState([]);
     const [inputValue, setInputValue] = useState('');
+
+    const countryAbbreviations = {};
 
     //An array to store random countries that'll be displayed on the homepage on load
     let arr = [];
@@ -44,28 +47,40 @@ function HomePage(){
     };
 
     const k = () => {
-
         arr.length = 0;
-        countriesData.map( (country, index) => {
-            if((country.name.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) && arr.length <= 8){
-                arr.push(country)
+        if(inputValue.trim()){
+            countriesData.map( (country, index) => {
+                if((country.name.toLowerCase().indexOf(inputValue.trim().toLowerCase()) !== -1) && arr.length <= 8){
+                    arr.push(country)
+                }
+            });
+        } else{
+            while(arr.length<8){
+                const b  = Math.floor(Math.random()*250) ;
+                if(arr.indexOf(b) === -1 ) arr.push(b); //This conditional ensures no country is displayed more than once
             }
-        });
+            updateCountriesForDisplay();
+            return;
+        }
         setCountriesForGridDisplay(arr);
     }
 
-   useMemo( () => updateCountriesForDisplay(), [countriesData]);
+    useMemo( () => updateCountriesForDisplay(), [countriesData]);
 
     useMemo(() => k(), [inputValue]);
 
+    countriesData.map( country => countryAbbreviations[`${country.alpha3Code}`] = country.name);
+
+    const a = countryAbbreviations;
+
     return(
             <div>
-                <div className="container-fluid">
                     <Header/>
-                    <Input handleInputValue={handleInput} newValue={inputValue} />
-                    {countriesData && <CountriesGrid countriesToDisplay = {countriesForGridDisplay}/>}
-                </div>
+                    <div className="container">
+                            <Input handleInputValue={handleInput} newValue={inputValue} />
+                        {countriesData && <CountriesGrid countriesToDisplay = {countriesForGridDisplay}/>}
+                    </div>
             </div>
     );
 }
-export default HomePage;
+export default  HomePage ;

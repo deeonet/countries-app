@@ -5,15 +5,13 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import CountryInDetail from "./components/CountryInDetail";
 
 function App() {
-    //const country = CountryInDetail;
-
     return (
       <Router>
           <div className="App">
                 <Switch>
                     <Route exact path="/" component= {HomePage} />
 
-                    <Route path="/country/:id" component= {CountryInDetail} />
+                    <Route exact path="/search/:id" component= {CountryInDetail} />
                 </Switch>
           </div>
       </Router>

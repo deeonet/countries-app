@@ -3,12 +3,13 @@ import Country from "./Country";
 import {Link} from "react-router-dom";
 
 function CountriesGrid(props){
+
 const arrayOfCountriesToDisplay  = props.countriesToDisplay;
 
     return(
-        <div className = "d-flex flex-row flex-wrap">
+        <div className = "d-flex flex-row flex-wrap mx-auto w-100">
             {arrayOfCountriesToDisplay.map( countryToDisplay =>
-                    <Link to={`/country/${countryToDisplay.callingCodes[0]}`} key={countryToDisplay.name}>
+                    <Link to={`/search/${countryToDisplay.alpha3Code}`} key={countryToDisplay.name}>
                         <Country
                             countryName = {countryToDisplay.name}
                             countryPopulation = {countryToDisplay.population}
