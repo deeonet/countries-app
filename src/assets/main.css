@@ -5,7 +5,7 @@ a{
     color: #000000;
 }
 a:hover{
-    opacity: 80%;
+    opacity: 0.7;
     color: #000000;
     text-decoration: none;
 }
