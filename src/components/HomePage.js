@@ -28,7 +28,6 @@ function HomePage(){
                 .then(data => setCountriesData(data))
                 .catch(err => console.log(err));
         }
-
         fetchData();
    }, []);
 
@@ -71,7 +70,7 @@ function HomePage(){
 
     countriesData.map( country => countryAbbreviations[`${country.alpha3Code}`] = country.name);
 
-    const a = countryAbbreviations;
+    //const a = countryAbbreviations;
 
     return(
             <div>

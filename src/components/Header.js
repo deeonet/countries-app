@@ -6,7 +6,7 @@ function Header(){
     return(
         <header className=" p-2 mb-3 bg-white navbar sticky-top w-100">
             <Link to="/">
-                <h3 className="navbar-brand">Where in the world?</h3>
+                <h1 className="navbar-brand">Where in the world?</h1>
             </Link>
         </header>
     )
