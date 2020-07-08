@@ -40,7 +40,7 @@ function HomePage(){
         const b = a.filter(word => word !== undefined);
 
         //The conditional enforces the reason stated above
-        if(b.length >= 0){
+        if(b.length > 0){
             setCountriesForGridDisplay(a);
         }
     };
